@@ -119,6 +119,8 @@ export class SignalComponent {
         console.log('Shipping method after order update:', this.shippingMethod())
         // shipping method is Water
     }
+
+    
 }
 
 interface Order {

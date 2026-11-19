@@ -15,3 +15,29 @@
     Selected Todo: {{ selectedTodos() }}
 </div>
 
+<!-- Display user information -->
+
+<button (click)="userId.set(userId() + 1)">Next User</button>
+
+ @if (userResource.value()) {
+    <p>Username: {{ username() }}</p>
+    <p>Phone: {{ userResource.value()?.phone }}</p>
+    <p>Email: {{ userResource.value()?.email }}</p>
+ }
+
+
+ <div>
+    <button (click)="pushUpdate('rowan')">Update User</button>
+
+    @if (userUpdateResource.value(); as latestUpdate) {
+        <p>Latest Update: {{ latestUpdate.value }} (#{{ latestUpdate.seq }} at {{ latestUpdate.at }})</p>
+    }
+
+    <ul>
+        @for (item of updateHistory(); track item.seq) {
+            <li>{{ item.value }} (#{{ item.seq }} at {{ item.at }})</li>
+        } @empty {
+            <li>No stream updates yet</li>
+        }
+    </ul>
+ </div>
