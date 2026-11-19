@@ -1,0 +1,17 @@
+<input #todoInput type="text">
+
+<button (click)="addTodo(todoInput.value); todoInput.value=''">Add Todo</button>
+
+<ul>
+   @for (todo of todos(); track todo; let idx = $index, e = $even) {
+       <li> <input type="checkbox" (change)="selectTodo($event.target.checked, todo)"> {{ idx+1 }} - {{ todo }} <button (click)="removeTodo(idx)">Remove</button></li>
+   } @empty {
+    <li>No todos available</li>
+   }
+</ul>
+
+<!-- Display selected todo -->
+<div>
+    Selected Todo: {{ selectedTodos() }}
+</div>
+

@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { SignalComponent } from './samples/signal/signal';
+import { ControlFlowComponent } from './samples/control-flow/control-flow';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [SignalComponent, ControlFlowComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
